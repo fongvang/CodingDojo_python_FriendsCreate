@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Friends-Create-Read</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<div id="container">
+		<h1>These Are All My Friends!</h1>
+
+		<!-- Start for Loop below! -->
+			{% for friend in friends: %}
+			<div class="friend-container">
+				<table>
+					
+					<tr>
+						<td class="label">First name:</td>
+						<td class="data">{{ friend['first_name'] }}</td>
+					</tr>
+
+					<tr>
+						<td class="label">Last name:</td>
+						<td class="data">{{friend['last_name']}}</td>
+					</tr>
+
+					<tr>
+						<td class="label">Occupation:</td>
+						<td>{{friend['occupation']}}</td>
+					</tr>
+
+				</table>
+				<hr>
+			</div>
+			{%endfor%}
+
+		<!-- End forLoop above! -->
+		<div id="form-container">
+			<h1>Add New Friend</h1>
+			<form action="/create_friend" method="POST">
+				<label class="label">First name:</label>
+				<input id="nameinput" type="text" name="first_name">
+				<br>
+				<label class="label">Last name:</label>
+				<input id="lastinput" type="text" name="last_name">
+				<br>
+				<label class="label">Occupation:</label>
+				<input id="occinput" type="text" name="occupation">
+				<br>
+				<!-- <input id="friendbutton" type="submit" name=""> -->
+				<button id="friendbutton">Add!</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
